@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      spacing="10" padding="15">
+
+    <!-- Campos de entrada -->
+    <TextField fx:id="nameField" promptText="Nombre del producto"/>
+    <TextField fx:id="quantityField" promptText="Cantidad"/>
+    <TextField fx:id="priceField" promptText="Precio"/>
+
+    <!-- Botón Añadir -->
+    <Button text="Añadir" fx:id="addBtn" maxWidth="Infinity"/>
+
+    <!-- Lista de productos -->
+    <ListView fx:id="productList" prefHeight="200"/>
+
+    <!-- Botones Editar y Eliminar -->
+    <HBox spacing="10">
+        <Button text="Editar" fx:id="editBtn" HBox.hgrow="ALWAYS"/>
+        <Button text="Eliminar" fx:id="deleteBtn" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+</VBox>
