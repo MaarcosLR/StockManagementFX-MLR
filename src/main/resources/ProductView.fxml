@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-      spacing="10" padding="15">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.stock.ProductController" spacing="10" alignment="CENTER">
 
-    <!-- Campos de entrada -->
-    <TextField fx:id="nameField" promptText="Nombre del producto"/>
-    <TextField fx:id="quantityField" promptText="Cantidad"/>
-    <TextField fx:id="priceField" promptText="Precio"/>
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
 
-    <!-- Botón Añadir -->
-    <Button text="Añadir" fx:id="addBtn" maxWidth="Infinity"/>
+    <!-- Sección de entrada de datos (Nombre, Cantidad, Precio) -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Cantidad:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtQuantity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Precio:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtPrice" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <ComboBox fx:id="currencyComboBox" GridPane.rowIndex="2" GridPane.columnIndex="2" prefWidth="100"/>
+    </GridPane>
+
+    <!-- Botón para agregar producto -->
+    <Separator/>
+    <Button text="Agregar" onAction="#addProduct"/>
+    <Separator/>
 
     <!-- Lista de productos -->
-    <ListView fx:id="productList" prefHeight="200"/>
+    <Label text="Lista de Productos:"/>
+    <ListView fx:id="productList" prefHeight="300" prefWidth="500"/>
+    <Separator/>
 
-    <!-- Botones Editar y Eliminar -->
+    <!-- Botones para editar, actualizar o eliminar -->
     <HBox spacing="10">
-        <Button text="Editar" fx:id="editBtn" HBox.hgrow="ALWAYS"/>
-        <Button text="Eliminar" fx:id="deleteBtn" HBox.hgrow="ALWAYS"/>
+        <Button text="Editar" onAction="#editProduct"/>
+        <Button text="Actualizar" onAction="#updateProduct"/>
+        <Button text="Eliminar" onAction="#deleteProduct"/>
     </HBox>
 
 </VBox>
